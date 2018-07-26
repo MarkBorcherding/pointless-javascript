@@ -66,7 +66,6 @@ export default class Presentation extends React.Component {
           <Heading size={1} fit>
             Mark Borcherding
           </Heading>
-            
             <Text textSize="2em" bold textColor="primary" textAlign="left">
               <img
                 src={require("../assets/slack.png")}
@@ -686,7 +685,7 @@ f(10)
         />
 
         <Slide>
-          <Heading fit>Y U No _.join ?</Heading>
+          <Heading fit>Y U No <code>_.join</code> ?</Heading>
           <Text margin="2em 0">
             <Code padding="1em"> _.join(array, [separator=',']) </Code>
           </Text>
@@ -1029,7 +1028,7 @@ const querystringify = pipe([
         </Slide>
 
         <Slide bgColor="code">
-          <Heading>fp.cond</Heading>
+          <Heading><code>fp.cond</code></Heading>
           <CodePane
             lang="js"
             theme="external"
@@ -1354,6 +1353,23 @@ average([1,2]) // 1.5
           />
         </Slide>
 
+        <Slide bgImage={require("../assets/hi.gif")} bgPosition="top"> 
+          <Heading size={1} fit>
+            Mark Borcherding
+          </Heading>
+            <Heading textColor="primary" fit>
+              <img
+            src={require("../assets/octocat.png")}
+            style={{
+              height: "1.5em",
+              width: "1.5em",
+              display: "inline-block",
+              verticalAlign: "middle"
+            }}
+              /> 
+              markborcherding/pointless-javascript
+            </Heading>
+        </Slide>
 
         <Slide><Heading fit>Questions?</Heading></Slide>
 
