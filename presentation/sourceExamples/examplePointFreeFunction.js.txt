@@ -2,5 +2,5 @@
 const struckOut =
   compose(isEqual(3), count, where(isStrike))
 
-struckOut(2)
+struckOut(['K', 'B', 'B', 'K', 'B'])
 // => false

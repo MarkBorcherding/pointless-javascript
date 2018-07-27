@@ -362,9 +362,9 @@ export default class Presentation extends React.Component {
             textSize="1em"
             padding="1em"
             source={`
-    const pipe = function(f,g,h){
-      return function(x){
-        return h(g(f(x)))
+    const pipe = function(f1,f2){
+      return function(val){
+        return f1(f2(val)))
       }
     }
             `}
@@ -378,7 +378,7 @@ export default class Presentation extends React.Component {
             theme="external"
             textSize="1em"
             source={`
-    const pipe = (f,g,h) => x => h(g(f(x)))
+    const pipe = (f1,f2) => val => f2(f1(val))
             `}
             />
         </Slide>
@@ -772,7 +772,7 @@ f(10)
           <Text textAlign="left" margin="1em 0">
             <Code>fp.get(path, object) </Code></Text>
           <Text textAlign="left" margin="1em 0">
-            <Code>fp.getOr(path, object, default) </Code></Text>
+            <Code>fp.getOr(path, default, object) </Code></Text>
         </Slide>
 
         <CodeSlide
@@ -842,13 +842,21 @@ const querystringify = fp.pipe([
             { loc: [0, 1], title: "We're going to use more of fp" },
             { loc: [2, 7] },
             { loc: [3, 4], title: "fp.pipe is a almost everywhere" },
-            { loc: [4, 5], title: "tuple the object" },
-            { loc: [5, 6], title: "remove undefined values" },
+            { loc: [4, 5], title: "convert to tuples" },
+            { loc: [5, 6], title: "select only present values" },
             { loc: [2, 3], title: "func takes obj → arr" },
             { loc: [3, 7], title: "...but there's points" },
             { loc: [5, 7], title: "[k,v] are function parameters" },
           ]}
         />
+
+          <Slide>
+            <Heading fit>Tuple in 30s</Heading>
+            <Text>A ordered list that forms something similar to a <Code>struct</Code>.</Text>
+            <Appear>
+              <Text><Code>[key, value]</Code></Text>
+            </Appear>
+          </Slide>
 
         <Slide><Heading fit>The Point-free Version</Heading></Slide>
 
@@ -1166,7 +1174,7 @@ average([1,2]) // 1.5
             textSize="1em"
             margin="1em 0"
             source={`
-  // same as fp.apply + fp.spread from earlier
+  // same as fp.spread + fp.over from earlier
   R.converge(R.divide, [R.sum, R.length]) 
               `}
           />
