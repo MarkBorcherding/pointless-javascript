@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js",
-    publicPath: "/dist/"
+    publicPath: "./pointless-javascript/dist/"
   },
   plugins: [
     new webpack.DefinePlugin({
