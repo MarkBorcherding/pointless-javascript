@@ -593,6 +593,7 @@ f(10)
     const join = function(delim){
       return function(list) {
         return list.join(delim);
+      }
     }
               `}
           />
@@ -852,9 +853,12 @@ const querystringify = fp.pipe([
 
           <Slide>
             <Heading fit>Tuple in 30s</Heading>
-            <Text>A ordered list that forms something similar to a <Code>struct</Code>.</Text>
+            <Text>A ordered list of a fixed size with positionally important values.</Text>
             <Appear>
               <Text><Code>[key, value]</Code></Text>
+            </Appear>
+            <Appear>
+              <Text><Code>[name, cost, quantity]</Code></Text>
             </Appear>
           </Slide>
 
@@ -1193,10 +1197,9 @@ average([1,2]) // 1.5
           ranges={[
             { loc: [0, 18], title:"Advent of Code" },
             { loc: [12, 18] },
-            { loc: [13, 14] },
-            { loc: [15, 16] },
-            { loc: [16, 17] },
-            { loc: [12, 18] },
+            { loc: [16, 17], title: "Zip with neighbor" },
+            { loc: [15, 16], title: "Only matching" },
+            { loc: [13, 15], title: "Sum the 1st position" },
           ]}
           />
 
@@ -1208,6 +1211,18 @@ average([1,2]) // 1.5
           ranges={[
             { loc: [0, 0], title: "High ★ version from Github"},
             { loc: [0,8], title: "Huh?"},
+          ]}
+          />
+
+        <Slide bgImage={require("../assets/head.explode.gif")} />
+
+        <CodeSlide
+          bgColor="code"
+          lang="javascript"
+          textSize="0.8em"
+          code={require("./sourceExamples/advent.of.code.someoneelse.js.txt")}
+          ranges={[
+            { loc: [0,8], title: "" },
           ]}
           />
 
