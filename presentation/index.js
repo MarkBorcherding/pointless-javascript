@@ -1259,7 +1259,7 @@ average([1,2]) // 1.5
         </Slide>
 
         <Slide bgColor="code">
-          <Heading fit>What is this?</Heading>
+          <Heading fit >What is this?</Heading>
           <CodePane
             lang="js"
             theme="dark"
@@ -1272,7 +1272,7 @@ average([1,2]) // 1.5
             />
         </Slide>
 
-        <Slide bgImage={require("../assets/noidea.gif")} bgDarken={0.5}>
+        <Slide bgImage={require("../assets/noidea.gif")} bgDarken={0.5} align="center flex-end">
           <Heading fit>Typescript Support</Heading>
           <Text textSize="3em" margin="1em 0" textColor="primary" bold>¯\_(ツ)_/¯</Text>
         </Slide>
