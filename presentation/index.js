@@ -364,7 +364,7 @@ export default class Presentation extends React.Component {
             source={`
     const pipe = function(f1,f2){
       return function(val){
-        return f1(f2(val)))
+        return f2(f1(val)))
       }
     }
             `}
@@ -1111,8 +1111,8 @@ average([1,2]) // 1.5 `}
             source={`
   // [(a→x), (a→y), ...] → a → [x,y]
 
-  fp.over([fp.sum, fp.size]) ([10, 5])
-  // [15, 2]
+  fp.over([fp.sum, fp.size]) ([10, 5, 2, 8])
+  // [25, 4]
                       `}
           />
         </Slide>
@@ -1319,6 +1319,13 @@ average([1,2]) // 1.5
         <Slide>
           <Heading fit>When not to use it</Heading>
           <Text>Whenever it doesn't make sense.</Text>
+          <Appear>
+            <BlockQuote margin="2em 0 0 0">
+              <Quote style={{fontWeight: 'normal', borderLeft: 'solid 1px black', lineHeight: '1.5'}} textSize="1em" textColor="secondary">
+                4.3.g. <br/>&nbsp;&nbsp;Be reasonable and expect others to be reasonable. </Quote>
+              <Text textColor="#999" textSize="0.8em"><i>&mdash; Principles</i> by Ray Dalio</Text>
+            </BlockQuote>
+          </Appear>
         </Slide>
 
         <Slide>

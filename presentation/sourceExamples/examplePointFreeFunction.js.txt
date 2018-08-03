@@ -1,4 +1,4 @@
-// struckOut = Number → Boolean
+// struckOut = [Char] → Boolean
 const struckOut =
   compose(isEqual(3), count, where(isStrike))
 
