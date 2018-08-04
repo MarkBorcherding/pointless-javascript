@@ -58,4 +58,8 @@ Interactive code slides highlight regions of the code using the up and down arro
 Open a browser to [http://localhost:3000/#/0?presenter&timer](http://localhost:3000/#/0?presenter&timer) and another window on the presentation display to [http://localhost:3000](http://localhost:3000).
 
 
+## TODO Changes
 
+* Remove the current cond example with a different one 
+* show an example of composing a new function to do a single map rather than several sequential maps
+* show the terrible stack traces...and maybe the much better ones from Sanctuary
