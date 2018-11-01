@@ -1062,25 +1062,30 @@ const querystringify = pipe([
           <Text>...but it returns</Text>
         </Slide>
 
-        <Slide bgColor="code">
-          <Heading fit>I've seen this a time or two</Heading>
-          <CodePane
-            lang="js"
-            theme="external"
-            textSize="0.8em"
-            source={`
-const isAction = fp.isEqual
 
-const incrementCount = (action, state) => state + 1
-
-export default = fp.cond([
-  [isAction("CLICK_UP"),   incrementCount],
-  [isAction("CLICK_DOWN"), decrementCount],
-  [fp.T,                   previousState ]
-])
-                        `}
+        <CodeSlide
+          bgColor="code"
+          lang="javascript"
+          textSize="1em"
+          code={`
+const selectTheThing = (id) => fp.map(
+  fp.cond([
+    [isMyThing(id), highlightThing],
+    [wasHighlighted, removeHighlight],
+    [fp.T, fp.identity],
+]))
+          `}
+          ranges={[
+            { loc: [0, 7] },
+            { loc: [1, 2], title: "FP has its own map" },
+            { loc: [2, 3], title: "fp.cond returns a function" },
+            { loc: [3, 4], title: "isMyThing(id) returns a boolean" },
+            { loc: [3, 4], title: "highlighThing returns a thing" },
+            { loc: [4, 5], title: "remove the highlight if it was there" },
+            { loc: [5, 6], title: "skip everything else" },
+            { loc: [0, 7], title: "We only loop once!" }
+          ]}
           />
-        </Slide>
 
 
         <Slide bgColor="code">
@@ -1259,6 +1264,7 @@ average([1,2]) // 1.5
         </Slide>
 
         <Slide bgColor="code">
+        z
           <Heading fit >What is this?</Heading>
           <CodePane
             lang="js"
@@ -1275,6 +1281,10 @@ average([1,2]) // 1.5
         <Slide bgImage={require("../assets/noidea.gif")} bgDarken={0.5} align="center flex-end">
           <Heading fit>Typescript Support</Heading>
           <Text textSize="3em" margin="1em 0" textColor="primary" bold>¯\_(ツ)_/¯</Text>
+        </Slide>
+
+        <Slide bgImage={require("../assets/strong.gif")} bgDarken={0.5} align="center flex-end">
+          <Text textSize="3em" margin="1em 0" textColor="primary" bold>#Typscript Strong</Text>
         </Slide>
 
         <Slide bgColor="code">
