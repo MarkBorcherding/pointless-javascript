@@ -376,7 +376,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="js"
             theme="external"
-            textSize="1em"
+            textSize="0.9em"
             source={`
     const pipe = (f1,f2) => val => f2(f1(val))
             `}
@@ -404,7 +404,7 @@ export default class Presentation extends React.Component {
           bgColor="code"
           transition={[]}
           lang="js"
-          textSize="0.8em"
+          textSize="0.7em"
           code={`
 // [(a→b), (b→c), ..., (y→z)] → a → z
 const pipe = funcs => x => funcs.reduce((v, f) => f(v), x)
@@ -1068,24 +1068,51 @@ const querystringify = pipe([
           lang="javascript"
           textSize="1em"
           code={`
-const selectTheThing = (id) => fp.map(
-  fp.cond([
-    [isMyThing(id), highlightThing],
-    [wasHighlighted, removeHighlight],
-    [fp.T, fp.identity],
-]))
+const selectTheThing = (id) => 
+  fp.map(
+    fp.cond([
+      [isMyThing(id), highlightThing],
+      [wasHighlighted, removeHighlight],
+      [fp.T, fp.identity],
+  ]))
           `}
           ranges={[
-            { loc: [0, 7] },
-            { loc: [1, 2], title: "FP has its own map" },
-            { loc: [2, 3], title: "fp.cond returns a function" },
-            { loc: [3, 4], title: "isMyThing(id) returns a boolean" },
-            { loc: [3, 4], title: "highlighThing returns a thing" },
-            { loc: [4, 5], title: "remove the highlight if it was there" },
-            { loc: [5, 6], title: "skip everything else" },
-            { loc: [0, 7], title: "We only loop once!" }
+            { loc: [0, 8] },
+            { loc: [2, 3], title: "FP has its own map" },
+            { loc: [3, 4], title: "fp.cond returns a function" },
+            { loc: [4, 5], title: "isMyThing(id) returns a boolean" },
+            { loc: [4, 5], title: "highlighThing returns a thing" },
+            { loc: [5, 6], title: "remove the highlight if it was there" },
+            { loc: [6, 7], title: "skip everything else" },
+            { loc: [0, 8], title: "We only loop once!" }
           ]}
           />
+
+
+        <Slide bgColor="code">
+          <Heading>tap</Heading>
+          <Text textColor="white">Execute side effects but return the passed in parameter.</Text>
+          <CodePane
+            lang="js"
+            theme="external"
+            textSize="1em"
+            margin="1em 0"
+            source={
+              `
+  const screamAboutThings =
+    fp.map(fp.tap(console.warn));
+
+  const workIt = fp.pipe(
+    changeThings
+    screamAboutThings,
+    changeMoreThings
+  );
+
+  const newThings = workIt([1,2,3,4]);
+`}
+          />
+        </Slide>
+
 
 
         <Slide bgColor="code">
